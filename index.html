@@ -50,10 +50,11 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   fetch(SHEET_URL)
-    .then(r => r.text())
-    .then(text => {
-      const lines = text.split(/\r?\n/).filter(l => l.trim() !== "");
-      const headers = lines.shift().split("\t").map(h => clean(h));
+  .then(r => r.text())
+  .then(text => {
+    console.log("DADOS BRUTOS:", text);
+  })
+  .catch(e => console.error("ERRO FETCH:", e));
 
       data = lines.map(line => {
         const values = line.split("\t").map(v => clean(v));
