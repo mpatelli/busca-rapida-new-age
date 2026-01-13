@@ -38,75 +38,62 @@
 <script>
 document.addEventListener("DOMContentLoaded", () => {
 
-  const SHEET_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vTb1zysM4bYEW5-jYTOkRCweXZ_-fYsW2ekQWznXYIP8o70TD-yp8rYWdr6dS56u3T_llhn5YlyRHAR/pub?output=tsv";
+  const CSV_URL = "base_produtos.csv";
+  let rows = [];
 
-  let data = [];
+  fetch(CSV_URL)
+    .then(r => r.text())
+    .then(text => {
+      const lines = text.split(/\r?\n/).filter(l => l.trim());
+      const headers = lines.shift().split(",").map(h => h.trim());
 
-  function clean(text) {
-    return text
-      .replace(/\uFEFF/g, "")      // remove BOM
-      .replace(/^"+|"+$/g, "")     // remove aspas externas
-      .trim();
-  }
-
-  fetch(SHEET_URL)
-  .then(r => r.text())
-  .then(text => {
-    console.log("DADOS BRUTOS:", text);
-  })
-  .catch(e => console.error("ERRO FETCH:", e));
-  
-      data = lines.map(line => {
-        const values = line.split("\t").map(v => clean(v));
-        let obj = {};
-        headers.forEach((h, i) => obj[h] = values[i] || "");
-        obj.tipo = obj.PAIS.toUpperCase() === "BRASIL" ? "Nacional" : "Internacional";
-        return obj;
+      rows = lines.map(l => {
+        const v = l.match(/(".*?"|[^",]+)(?=\s*,|\s*$)/g) || [];
+        let o = {};
+        headers.forEach((h,i) => o[h] = (v[i]||"").replace(/^"|"$/g,"").trim());
+        o.tipo = o.PAIS.toUpperCase()==="BRASIL" ? "Nacional" : "Internacional";
+        return o;
       });
 
-      initFilters();
+      init();
       render();
     });
 
-  function initFilters() {
-    const seloSel = document.getElementById("seloFilter");
-    const cidadeSel = document.getElementById("cidadeFilter");
+  function init(){
+    const selo = document.getElementById("seloFilter");
+    const cidade = document.getElementById("cidadeFilter");
 
-    [...new Set(data.map(d => d.SELO).filter(Boolean))].forEach(v => {
-      seloSel.appendChild(new Option(v, v));
-    });
+    [...new Set(rows.map(r=>r.SELO).filter(Boolean))].forEach(v=>selo.add(new Option(v,v)));
+    [...new Set(rows.map(r=>r.CIDADE).filter(Boolean))].forEach(v=>cidade.add(new Option(v,v)));
 
-    [...new Set(data.map(d => d.CIDADE).filter(Boolean))].forEach(v => {
-      cidadeSel.appendChild(new Option(v, v));
-    });
-
-    document.querySelectorAll('input[name="tipo"]').forEach(r => r.addEventListener("change", render));
-    seloSel.addEventListener("change", render);
-    cidadeSel.addEventListener("change", render);
+    document.querySelectorAll('input[name="tipo"]').forEach(r=>r.onchange=render);
+    selo.onchange=render;
+    cidade.onchange=render;
   }
 
-  function render() {
+  function render(){
     const tipo = document.querySelector('input[name="tipo"]:checked').value;
     const selo = document.getElementById("seloFilter").value;
     const cidade = document.getElementById("cidadeFilter").value;
-    const list = document.getElementById("productList");
-    list.innerHTML = "";
+    const out = document.getElementById("productList");
+    out.innerHTML = "";
 
-    data.filter(d =>
-      d.tipo === tipo &&
-      (!selo || d.SELO === selo) &&
-      (!cidade || d.CIDADE === cidade)
-    ).forEach(d => {
+    rows.filter(r=>
+      r.tipo===tipo &&
+      (!selo || r.SELO===selo) &&
+      (!cidade || r.CIDADE===cidade)
+    ).forEach(r=>{
       const a = document.createElement("a");
-      a.className = "product-link";
-      a.textContent = d.PRODUTO;
-      a.href = encodeURI(d.LINK);
-      a.target = "_blank";
-      list.appendChild(a);
+      a.href = r.LINK;
+      a.textContent = r.PRODUTO;
+      a.target="_blank";
+      a.className="product-link";
+      out.appendChild(a);
     });
   }
 });
 </script>
+
 
 </body>
 </html>
