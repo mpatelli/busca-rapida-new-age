@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>New Age - Busca Rápida de Pacotes</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    header { padding: 10px; background-color: #f0f0f0; }
+    label { margin-right: 15px; }
+    select { margin-right: 15px; }
+    main { margin-top: 20px; }
+    .product-link { display: block; margin: 5px 0; }
+  </style>
+</head>
+<body>
+
+<header>
+  <!-- Botões de rádio para Nacional/Internacional -->
+  <label><input type="radio" name="tipo" value="Nacional" checked> Nacional</label>
+  <label><input type="radio" name="tipo" value="Internacional"> Internacional</label>
+  <!-- Drop-down de SELO -->
+  <label>Selecione o tema do produto:
+    <select id="seloFilter">
+      <option value="">Todos</option>
+    </select>
+  </label>
+  <!-- Drop-down de CIDADE -->
+  <label>Selecione o destino:
+    <select id="cidadeFilter">
+      <option value="">Todas</option>
+    </select>
+  </label>
+</header>
+
+<main id="productList">
+  <!-- Lista de produtos será inserida aqui -->
+</main>
+
+<script>
+window.addEventListener('DOMContentLoaded', () => {
+  // 1. Carrega o CSV
+  fetch('https://docs.google.com/spreadsheets/d/e/2PACX-1vTb1zysM4bYEW5-jYTOkRCweXZ_-fYsW2ekQWznXYIP8o70TD-yp8rYWdr6dS56u3T_llhn5YlyRHAR/pub?output=csv')
+    .then(response => response.text())
+    .then(text => {
+      const lines = text.trim().split('\n');
+      const headers = lines[0].split(',');
+      const data = [];
+      // Monta array de objetos a partir do CSV
+      for (let i = 1; i < lines.length; i++) {
+        const values = lines[i].split(',');
+        let item = {};
+        headers.forEach((h, idx) => {
+          item[h] = values[idx].trim();
+        });
+        // Define tipo: Nacional se PAIS for BRASIL (case-insensitive)
+        item.tipo = (item.PAIS.toUpperCase() === 'BRASIL') ? 'Nacional' : 'Internacional';
+        data.push(item);
+      }
+      
+      // 2. Extrai valores únicos de SELO e CIDADE
+      const selos = [...new Set(data.map(item => item.SELO))];
+      const cidades = [...new Set(data.map(item => item.CIDADE))];
+      const seloSelect = document.getElementById('seloFilter');
+      const cidadeSelect = document.getElementById('cidadeFilter');
+      // Preenche opções de selo
+      selos.forEach(selo => {
+        const opt = document.createElement('option');
+        opt.value = selo;
+        opt.textContent = selo;
+        seloSelect.appendChild(opt);
+      });
+      // Preenche opções de cidade
+      cidades.forEach(cidade => {
+        const opt = document.createElement('option');
+        opt.value = cidade;
+        opt.textContent = cidade;
+        cidadeSelect.appendChild(opt);
+      });
+
+      // Elemento onde os produtos serão exibidos
+      const productList = document.getElementById('productList');
+
+      // Função para filtrar e mostrar produtos
+      function filterAndDisplay() {
+        // Tipo selecionado (Nacional ou Internacional)
+        const tipo = document.querySelector('input[name="tipo"]:checked').value;
+        const seloVal = seloSelect.value;
+        const cidadeVal = cidadeSelect.value;
+        // Filtra o array de produtos
+        const filtered = data.filter(item => {
+          if (item.tipo !== tipo) return false;
+          if (seloVal && item.SELO !== seloVal) return false;
+          if (cidadeVal && item.CIDADE !== cidadeVal) return false;
+          return true;
+        });
+        // Exibe no DOM
+        productList.innerHTML = '';
+        if (filtered.length === 0) {
+          productList.textContent = 'Nenhum produto encontrado.';
+        } else {
+          filtered.forEach(item => {
+            const a = document.createElement('a');
+            a.href = item.LINK;
+            a.textContent = item.PRODUTO;
+            a.target = '_blank';
+            a.className = 'product-link';
+            productList.appendChild(a);
+          });
+        }
+      }
+
+      // 3. Adiciona event listeners aos filtros
+      document.querySelectorAll('input[name="tipo"]').forEach(radio => {
+        radio.addEventListener('change', filterAndDisplay);
+      });
+      seloSelect.addEventListener('change', filterAndDisplay);
+      cidadeSelect.addEventListener('change', filterAndDisplay);
+
+      // 4. Exibe inicialmente produtos nacionais (padrão)
+      filterAndDisplay();
+    })
+    .catch(err => {
+      console.error('Erro ao carregar o CSV:', err);
+    });
+});
+</script>
+
+</body>
+</html>
