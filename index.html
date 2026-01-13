@@ -39,15 +39,15 @@
 <script>
 window.addEventListener('DOMContentLoaded', () => {
   // 1. Carrega o CSV
-  fetch('https://docs.google.com/spreadsheets/d/e/2PACX-1vTb1zysM4bYEW5-jYTOkRCweXZ_-fYsW2ekQWznXYIP8o70TD-yp8rYWdr6dS56u3T_llhn5YlyRHAR/pub?output=csv')
-    .then(response => response.text())
-    .then(text => {
-      const lines = text.trim().split('\n');
-      const headers = lines[0].split(',');
+  fetch('https://docs.google.com/spreadsheets/d/e/2PACX-1vTb1zysM4bYEW5-jYTOkRCweXZ_-fYsW2ekQWznXYIP8o70TD-yp8rYWdr6dS56u3T_llhn5YlyRHAR/pub?output=tsv')
+  .then(response => response.text())
+  .then(text => {
+    const lines = text.trim().split('\n');
+    const headers = lines[0].split('\t');
       const data = [];
       // Monta array de objetos a partir do CSV
       for (let i = 1; i < lines.length; i++) {
-        const values = lines[i].split(',');
+        const values = lines[i].split('\t');
         let item = {};
         headers.forEach((h, idx) => {
           item[h] = values[idx].trim();
