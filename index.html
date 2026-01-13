@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded", () => {
     console.log("DADOS BRUTOS:", text);
   })
   .catch(e => console.error("ERRO FETCH:", e));
-
+  
       data = lines.map(line => {
         const values = line.split("\t").map(v => clean(v));
         let obj = {};
