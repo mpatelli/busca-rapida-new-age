@@ -37,93 +37,81 @@
 </main>
 
 <script>
-window.addEventListener('DOMContentLoaded', () => {
-  // 1. Carrega o CSV
-  fetch('https://docs.google.com/spreadsheets/d/e/2PACX-1vTb1zysM4bYEW5-jYTOkRCweXZ_-fYsW2ekQWznXYIP8o70TD-yp8rYWdr6dS56u3T_llhn5YlyRHAR/pub?output=tsv')
-  .then(response => response.text())
-  .then(text => {
-    const lines = text.trim().split('\n');
-    const headers = lines[0].split('\t');
-      const data = [];
-      // Monta array de objetos a partir do CSV
-      for (let i = 1; i < lines.length; i++) {
-        const values = lines[i].split('\t');
-        let item = {};
-        headers.forEach((h, idx) => {
-          item[h] = values[idx].trim();
-        });
-        // Define tipo: Nacional se PAIS for BRASIL (case-insensitive)
-        item.tipo = (item.PAIS.toUpperCase() === 'BRASIL') ? 'Nacional' : 'Internacional';
-        data.push(item);
-      }
-      
-      // 2. Extrai valores únicos de SELO e CIDADE
-      const selos = [...new Set(data.map(item => item.SELO))];
-      const cidades = [...new Set(data.map(item => item.CIDADE))];
-      const seloSelect = document.getElementById('seloFilter');
-      const cidadeSelect = document.getElementById('cidadeFilter');
-      // Preenche opções de selo
-      selos.forEach(selo => {
-        const opt = document.createElement('option');
-        opt.value = selo;
-        opt.textContent = selo;
-        seloSelect.appendChild(opt);
-      });
-      // Preenche opções de cidade
-      cidades.forEach(cidade => {
-        const opt = document.createElement('option');
-        opt.value = cidade;
-        opt.textContent = cidade;
-        cidadeSelect.appendChild(opt);
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+  const SHEET_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vTb1zysM4bYEW5-jYTOkRCweXZ_-fYsW2ekQWznXYIP8o70TD-yp8rYWdr6dS56u3T_llhn5YlyRHAR/pub?output=tsv";
+
+  let data = [];
+
+  function clean(text) {
+    return text
+      .replace(/\uFEFF/g, "")      // remove BOM
+      .replace(/^"+|"+$/g, "")     // remove aspas externas
+      .trim();
+  }
+
+  fetch(SHEET_URL)
+    .then(r => r.text())
+    .then(text => {
+      const lines = text.split(/\r?\n/).filter(l => l.trim() !== "");
+      const headers = lines.shift().split("\t").map(h => clean(h));
+
+      data = lines.map(line => {
+        const values = line.split("\t").map(v => clean(v));
+        let obj = {};
+        headers.forEach((h, i) => obj[h] = values[i] || "");
+        obj.tipo = obj.PAIS.toUpperCase() === "BRASIL" ? "Nacional" : "Internacional";
+        return obj;
       });
 
-      // Elemento onde os produtos serão exibidos
-      const productList = document.getElementById('productList');
-
-      // Função para filtrar e mostrar produtos
-      function filterAndDisplay() {
-        // Tipo selecionado (Nacional ou Internacional)
-        const tipo = document.querySelector('input[name="tipo"]:checked').value;
-        const seloVal = seloSelect.value;
-        const cidadeVal = cidadeSelect.value;
-        // Filtra o array de produtos
-        const filtered = data.filter(item => {
-          if (item.tipo !== tipo) return false;
-          if (seloVal && item.SELO !== seloVal) return false;
-          if (cidadeVal && item.CIDADE !== cidadeVal) return false;
-          return true;
-        });
-        // Exibe no DOM
-        productList.innerHTML = '';
-        if (filtered.length === 0) {
-          productList.textContent = 'Nenhum produto encontrado.';
-        } else {
-          filtered.forEach(item => {
-            const a = document.createElement('a');
-            a.href = item.LINK;
-            a.textContent = item.PRODUTO;
-            a.target = '_blank';
-            a.className = 'product-link';
-            productList.appendChild(a);
-          });
-        }
-      }
-
-      // 3. Adiciona event listeners aos filtros
-      document.querySelectorAll('input[name="tipo"]').forEach(radio => {
-        radio.addEventListener('change', filterAndDisplay);
-      });
-      seloSelect.addEventListener('change', filterAndDisplay);
-      cidadeSelect.addEventListener('change', filterAndDisplay);
-
-      // 4. Exibe inicialmente produtos nacionais (padrão)
-      filterAndDisplay();
-    })
-    .catch(err => {
-      console.error('Erro ao carregar o CSV:', err);
+      initFilters();
+      render();
     });
+
+  function initFilters() {
+    const seloSel = document.getElementById("seloFilter");
+    const cidadeSel = document.getElementById("cidadeFilter");
+
+    [...new Set(data.map(d => d.SELO).filter(Boolean))].forEach(v => {
+      seloSel.appendChild(new Option(v, v));
+    });
+
+    [...new Set(data.map(d => d.CIDADE).filter(Boolean))].forEach(v => {
+      cidadeSel.appendChild(new Option(v, v));
+    });
+
+    document.querySelectorAll('input[name="tipo"]').forEach(r => r.addEventListener("change", render));
+    seloSel.addEventListener("change", render);
+    cidadeSel.addEventListener("change", render);
+  }
+
+  function render() {
+    const tipo = document.querySelector('input[name="tipo"]:checked').value;
+    const selo = document.getElementById("seloFilter").value;
+    const cidade = document.getElementById("cidadeFilter").value;
+    const list = document.getElementById("productList");
+    list.innerHTML = "";
+
+    data.filter(d =>
+      d.tipo === tipo &&
+      (!selo || d.SELO === selo) &&
+      (!cidade || d.CIDADE === cidade)
+    ).forEach(d => {
+      const a = document.createElement("a");
+      a.className = "product-link";
+      a.textContent = d.PRODUTO;
+      a.href = encodeURI(d.LINK);
+      a.target = "_blank";
+      list.appendChild(a);
+    });
+  }
 });
 </script>
+
+
+
+
 
 </body>
 </html>
