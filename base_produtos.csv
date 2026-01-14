@@ -1,25 +1,23 @@
-PAIS;REGIAO;SELO;CIDADE;PRODUTO;LINK;;;
-BRASIL;;PRAIA;PORTO SEGURO ;PORTO SEGURO - 05 dias;https://fastbooking.newage.tur.br/infotravel/public/login.xhtml?topVendaId=5855;;;
-BRASIL;;PRAIA;PRAIA DO FORTE ;PRAIA DO FORTE - 05 dias;https://fastbooking.newage.tur.br/infotravel/public/login.xhtml?topVendaId=5858;;;
-BRASIL;;PRAIA;SALVADOR ;SALVADOR - 05 dias;https://fastbooking.newage.tur.br/infotravel/public/login.xhtml?topVendaId=5860;;;
-BRASIL;;PRAIA;ILH…US ;ILH…US - 05 dias;https://fastbooking.newage.tur.br/infotravel/public/login.xhtml?topVendaId=5875;;;
-BRASIL;;PRAIA;TRANCOSO ;TRANCOSO - 05 dias;https://fastbooking.newage.tur.br/infotravel/public/login.xhtml?topVendaId=5891;;;
-BRASIL;;PRAIA;ARRAIAL D'AJUDA ;ARRAIAL D'AJUDA - 05 dias;https://fastbooking.newage.tur.br/infotravel/public/login.xhtml?topVendaId=5892;;;
-BRASIL;;PRAIA;VILA GAL… MAR…S RESORT ;VILA GAL… MAR…S RESORT - 05 dias;https://fastbooking.newage.tur.br/infotravel/public/login.xhtml?topVendaId=5893;;;
-BRASIL;;PRAIA;RECIFE ;RECIFE - 05 dias;https://fastbooking.newage.tur.br/infotravel/public/login.xhtml?topVendaId=5894;;;
-BRASIL;;PRAIA;PORTO DE GALINHAS  ;PORTO DE GALINHAS  - 05 dias;https://fastbooking.newage.tur.br/infotravel/public/login.xhtml?topVendaId=5895;;;
-BRASIL;;PRAIA;FERNANDO DE NORONHA ;FERNANDO DE NORONHA - 05 dias;https://fastbooking.newage.tur.br/infotravel/public/login.xhtml?topVendaId=5896;;;
-BRASIL;;PRAIA;FORTALEZA ;FORTALEZA - 05 dias;https://fastbooking.newage.tur.br/infotravel/public/login.xhtml?topVendaId=5897;;;
-MARROCOS;;ENTRE AMIGAS;MARROCOS;MARROCOS FASCINANTE S” PARA MULHERES;https://fastbooking.newage.tur.br/infotravel/public/login.xhtml?topVendaId=5863;;;
-MARROCOS;;SMALL GROUPS;MARROCOS;MARROCOS FASCÕNIO - SMALL GROUP;https://fastbooking.newage.tur.br/infotravel/public/login.xhtml?topVendaId=5862;;;
-MARROCOS;;EXOTICOS;MARROCOS;DESCUBRA O MARROCOS DESDE COSTA DEL SOL;https://fastbooking.newage.tur.br/infotravel/public/login.xhtml?topVendaId=5864;;;
-MARROCOS;;EXOTICOS;MARROCOS;DESCUBRA O MARROCOS DESDE CASABLANCA;https://fastbooking.newage.tur.br/infotravel/public/login.xhtml?topVendaId=5867;;;
-MARROCOS;;EXOTICOS;MARROCOS;CIDADES IMPERIAIS DESDE CASABLANCA;https://fastbooking.newage.tur.br/infotravel/public/login.xhtml?topVendaId=5869;;;
-MARROCOS;;EXOTICOS;MARROCOS;CIDADES IMPERIAIS DESDE COSTA DEL SOL;https://fastbooking.newage.tur.br/infotravel/public/login.xhtml?topVendaId=5870;;;
-MARROCOS;;EXOTICOS;MARROCOS;CIDADES IMPERIAIS COM ESSAOUIRA DESDE MARRAKECH;https://fastbooking.newage.tur.br/infotravel/public/login.xhtml?topVendaId=5866;;;
-MARROCOS;;EXOTICOS;MARROCOS;GRAND TOUR CL¡SSICO DESDE CASABLANCA;https://fastbooking.newage.tur.br/infotravel/public/login.xhtml?topVendaId=5871;;;
-MARROCOS;;EXOTICOS;MARROCOS;GRAND TOUR CL¡SSICO DESDE DESDE COSTA DEL SOL;https://fastbooking.newage.tur.br/infotravel/public/login.xhtml?topVendaId=5872;;;
-MARROCOS;;EXOTICOS;MARROCOS;SAHARA EXPRESS DESDE MARRAKECH;https://fastbooking.newage.tur.br/infotravel/public/login.xhtml?topVendaId=5873;;;
-AFRICA DO SUL;;EXOTICOS;AFRICA DO SUL;¡FRICA DO SUL EM FAMÕLIA - SHOSHOLOZA PILANESBERG 2026;https://fastbooking.newage.tur.br/infotravel/public/login.xhtml?topVendaId=5853;;;
-;;;;;;;;
-;;;;;;;;
+ÔªøPAIS;SELO;CIDADE;PRODUTO;LINK
+BRASIL;PRAIA;PORTO SEGURO ;PORTO SEGURO - 05 dias;https://fastbooking.newage.tur.br/infotravel/public/login.xhtml?topVendaId=5855
+BRASIL;PRAIA;PRAIA DO FORTE ;PRAIA DO FORTE - 05 dias;https://fastbooking.newage.tur.br/infotravel/public/login.xhtml?topVendaId=5858
+BRASIL;PRAIA;SALVADOR ;SALVADOR - 05 dias;https://fastbooking.newage.tur.br/infotravel/public/login.xhtml?topVendaId=5860
+BRASIL;PRAIA;ILH√âUS ;ILH√âUS - 05 dias;https://fastbooking.newage.tur.br/infotravel/public/login.xhtml?topVendaId=5875
+BRASIL;PRAIA;TRANCOSO ;TRANCOSO - 05 dias;https://fastbooking.newage.tur.br/infotravel/public/login.xhtml?topVendaId=5891
+BRASIL;PRAIA;ARRAIAL D'AJUDA ;ARRAIAL D'AJUDA - 05 dias;https://fastbooking.newage.tur.br/infotravel/public/login.xhtml?topVendaId=5892
+BRASIL;PRAIA;VILA GAL√â MAR√âS RESORT ;VILA GAL√â MAR√âS RESORT - 05 dias;https://fastbooking.newage.tur.br/infotravel/public/login.xhtml?topVendaId=5893
+BRASIL;PRAIA;RECIFE ;RECIFE - 05 dias;https://fastbooking.newage.tur.br/infotravel/public/login.xhtml?topVendaId=5894
+BRASIL;PRAIA;PORTO DE GALINHAS  ;PORTO DE GALINHAS  - 05 dias;https://fastbooking.newage.tur.br/infotravel/public/login.xhtml?topVendaId=5895
+BRASIL;PRAIA;FERNANDO DE NORONHA ;FERNANDO DE NORONHA - 05 dias;https://fastbooking.newage.tur.br/infotravel/public/login.xhtml?topVendaId=5896
+BRASIL;PRAIA;FORTALEZA ;FORTALEZA - 05 dias;https://fastbooking.newage.tur.br/infotravel/public/login.xhtml?topVendaId=5897
+MARROCOS;ENTRE AMIGAS;MARROCOS;MARROCOS FASCINANTE S√ì PARA MULHERES;https://fastbooking.newage.tur.br/infotravel/public/login.xhtml?topVendaId=5863
+MARROCOS;SMALL GROUPS;MARROCOS;MARROCOS FASC√çNIO - SMALL GROUP;https://fastbooking.newage.tur.br/infotravel/public/login.xhtml?topVendaId=5862
+MARROCOS;EXOTICOS;MARROCOS;DESCUBRA O MARROCOS DESDE COSTA DEL SOL;https://fastbooking.newage.tur.br/infotravel/public/login.xhtml?topVendaId=5864
+MARROCOS;EXOTICOS;MARROCOS;DESCUBRA O MARROCOS DESDE CASABLANCA;https://fastbooking.newage.tur.br/infotravel/public/login.xhtml?topVendaId=5867
+MARROCOS;EXOTICOS;MARROCOS;CIDADES IMPERIAIS DESDE CASABLANCA;https://fastbooking.newage.tur.br/infotravel/public/login.xhtml?topVendaId=5869
+MARROCOS;EXOTICOS;MARROCOS;CIDADES IMPERIAIS DESDE COSTA DEL SOL;https://fastbooking.newage.tur.br/infotravel/public/login.xhtml?topVendaId=5870
+MARROCOS;EXOTICOS;MARROCOS;CIDADES IMPERIAIS COM ESSAOUIRA DESDE MARRAKECH;https://fastbooking.newage.tur.br/infotravel/public/login.xhtml?topVendaId=5866
+MARROCOS;EXOTICOS;MARROCOS;GRAND TOUR CL√ÅSSICO DESDE CASABLANCA;https://fastbooking.newage.tur.br/infotravel/public/login.xhtml?topVendaId=5871
+MARROCOS;EXOTICOS;MARROCOS;GRAND TOUR CL√ÅSSICO DESDE DESDE COSTA DEL SOL;https://fastbooking.newage.tur.br/infotravel/public/login.xhtml?topVendaId=5872
+MARROCOS;EXOTICOS;MARROCOS;SAHARA EXPRESS DESDE MARRAKECH;https://fastbooking.newage.tur.br/infotravel/public/login.xhtml?topVendaId=5873
+AFRICA DO SUL;EXOTICOS;AFRICA DO SUL;√ÅFRICA DO SUL EM FAM√çLIA - SHOSHOLOZA PILANESBERG 2026;https://fastbooking.newage.tur.br/infotravel/public/login.xhtml?topVendaId=5853
