@@ -38,20 +38,20 @@
 <script>
 document.addEventListener("DOMContentLoaded", () => {
 
-  const CSV_URL = "base_produtos.csv";
+  const CSV_URL = "base_produtos.csv";  // nome real do seu arquivo
   let rows = [];
 
   fetch(CSV_URL)
     .then(r => r.text())
     .then(text => {
       const lines = text.split(/\r?\n/).filter(l => l.trim());
-      const headers = lines.shift().split(",").map(h => h.trim());
+      const headers = lines.shift().split(";").map(h => h.trim());
 
       rows = lines.map(l => {
-        const v = l.match(/(".*?"|[^",]+)(?=\s*,|\s*$)/g) || [];
+        const v = l.split(";");
         let o = {};
-        headers.forEach((h,i) => o[h] = (v[i]||"").replace(/^"|"$/g,"").trim());
-        o.tipo = o.PAIS.toUpperCase()==="BRASIL" ? "Nacional" : "Internacional";
+        headers.forEach((h,i) => o[h] = (v[i]||"").trim());
+        o.tipo = o.PAIS.toUpperCase() === "BRASIL" ? "Nacional" : "Internacional";
         return o;
       });
 
@@ -93,6 +93,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 </script>
+
 
 
 </body>
