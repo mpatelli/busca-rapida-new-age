@@ -1,6 +1,7 @@
 PAIS,REGIAO,SELO,CIDADE,PRODUTO,LINK
-BRASIL,RJ,EXOTICO,CASABLANCA,PACOTE TESTE MARROCOS,https://fastbooking.newage.tur.br/infotravel/public/login.xhtml?topVendaId=5872
+BRASIL,RJ,EXOTICO,CASABLANCA,PACOTE TESTE MARROCOS-NACIONAL,https://fastbooking.newage.tur.br/infotravel/public/login.xhtml?topVendaId=5872
 
-MARROCOS,MA,FAMILIA,MARRAKESH,PACOTE TESTE MARROCOS 2,https://fastbooking.newage.tur.br/infotravel/public/login.xhtml?topVendaId=5872
+MARROCOS,MA,FAMILIA,MARRAKESH,PACOTE TESTE MARROCOS-INTERNACIONAL,https://fastbooking.newage.tur.br/infotravel/public/login.xhtml?topVendaId=5872
+
 
 
