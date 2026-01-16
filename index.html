@@ -21,12 +21,49 @@ body{
 header{
   border-bottom:1px solid #eee;
 }
-h1{
-    font-family: 'Penumbra-Bold';
-    color: #003671;
-    font-size: 18px;
-    padding: 30px 0 30px 0;
+.na-header{
+  background:#fff;
+  border-bottom:1px solid #e5e5e5;
 }
+.na-header-container{
+  max-width:1300px;
+  margin:auto;
+  padding:18px 20px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+.na-logo img{height:46px}
+
+.na-menu a{
+  margin:0 18px;
+  text-decoration:none;
+  font-weight:600;
+  color:#000;
+  font-size:15px;
+}
+.na-menu a:hover{color:#003671}
+
+.na-actions{
+  display:flex;
+  align-items:center;
+  gap:18px;
+}
+.fast-booking{
+  background:#f15a24;
+  color:#fff;
+  padding:10px 16px;
+  font-size:13px;
+  font-weight:700;
+  text-decoration:none;
+}
+.fast-booking:hover{opacity:.9}
+
+.phone{
+  font-weight:600;
+  font-size:14px;
+}
+
 .topbar{
   background:#000;
   color:#fff;
@@ -69,9 +106,12 @@ main{
   margin-bottom:40px;
 }
 .page-title h1{
-  font-size:32px;
+  font-family:'Penumbra','Montserrat',Arial,sans-serif;
+  color:#003671;
+  font-size:34px;
   font-weight:700;
 }
+
 .page-title p{
   margin-top:10px;
   color:#666;
@@ -153,6 +193,40 @@ footer a:hover{color:#fff}
   text-align:center;
   font-size:13px;
 }
+.na-footer{
+  background:#003671;
+  color:#fff;
+  padding:60px 20px;
+}
+.na-footer-container{
+  max-width:1300px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:40px;
+}
+.na-footer h4{
+  margin-bottom:15px;
+  font-size:16px;
+  font-weight:700;
+}
+.na-footer a{
+  display:block;
+  color:#fff;
+  text-decoration:none;
+  margin-bottom:6px;
+  font-size:14px;
+}
+.na-footer a:hover{text-decoration:underline}
+
+.footer-logos img{
+  max-width:160px;
+  margin-bottom:15px;
+}
+.exchange{
+  margin-top:15px;
+  font-size:14px;
+}
 
 /* ================== RESPONSIVO ================== */
 @media(max-width:768px){
@@ -164,26 +238,25 @@ footer a:hover{color:#fff}
 <body>
 
 <!-- ================== HEADER ================== -->
-<header>
-  <div class="topbar">
-    <div class="container">
-      <div>📞 +55 11 3168-4400</div>
-      <div><a href="https://newage.tur.br">newage.tur.br</a></div>
-    </div>
-  </div>
-
-  <div class="container navbar">
-    <div class="logo">
+<header class="na-header">
+  <div class="na-header-container">
+    <div class="na-logo">
       <img src="https://newage.tur.br/view/images/logo.png" alt="New Age">
     </div>
-    <nav class="menu">
-      <a href="#">A Operadora</a>
-      <a href="#">Produtos</a>
+
+    <nav class="na-menu">
+      <a href="#">Quem Somos</a>
       <a href="#">Destinos</a>
-      <a href="#">Contato</a>
+      <a href="#">Fale Conosco</a>
     </nav>
+
+    <div class="na-actions">
+      <a href="#" class="fast-booking">FAST BOOKING</a>
+      <span class="phone">📞 (11) 4395-7078</span>
+    </div>
   </div>
 </header>
+
 
 <!-- ================== MAIN ================== -->
 <main>
@@ -224,27 +297,50 @@ footer a:hover{color:#fff}
 </main>
 
 <!-- ================== FOOTER ================== -->
-<footer>
-  <div class="container footer-grid">
+<footer class="na-footer">
+  <div class="na-footer-container">
+
     <div>
-      <h4>New Age Operadora</h4>
-      <p>Excelência em turismo nacional e internacional.</p>
+      <h4>CONTATO</h4>
+      <p>📞 (11) 4395-7078</p>
+      <p>✉️ comercial@newage.tur.br</p>
+      <p>🕘 Segunda a Sexta das 9h00 às 18h30</p>
     </div>
+
     <div>
-      <h4>Contato</h4>
-      <p>📞 +55 11 3168-4400<br>
-      ✉️ atendimento@newage.tur.br</p>
+      <h4>FORMULÁRIOS</h4>
+      <a href="#">News</a>
+      <a href="#">Para reservar</a>
+      <a href="#">Condições Gerais</a>
+      <a href="#">Política de Privacidade</a>
+      <a href="#">Termo de responsabilidade</a>
+      <a href="#">Seja cliente</a>
+      <a href="#">Solicitações para grupos</a>
     </div>
+
     <div>
-      <h4>Institucional</h4>
-      <p><a href="#">Sobre nós</a><br>
-      <a href="#">Política de Privacidade</a></p>
+      <h4>Redes Sociais</h4>
+      <div class="socials">
+        <span>Instagram</span>
+        <span>Facebook</span>
+        <span>LinkedIn</span>
+        <span>YouTube</span>
+        <span>Twitter</span>
+      </div>
+      <p class="exchange">
+        Câmbio data: 15/01/2026<br>
+        $ R$ 5,53 &nbsp; € R$ 6,44
+      </p>
     </div>
-  </div>
-  <div class="container footer-bottom">
-    © New Age Operadora de Turismo – Todos os direitos reservados
+
+    <div class="footer-logos">
+      <img src="https://newage.tur.br/view/images/logo-footer.png" alt="">
+      <img src="https://newage.tur.br/view/images/iglta.png" alt="">
+    </div>
+
   </div>
 </footer>
+
 
 <!-- ================== SCRIPT ================== -->
 <script>
