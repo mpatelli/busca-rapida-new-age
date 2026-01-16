@@ -21,10 +21,298 @@ body{
 header{
   border-bottom:1px solid #eee;
 }
+h1{
+    font-family: 'Penumbra-Bold';
+    color: #003671;
+    font-size: 18px;
+    padding: 30px 0 30px 0;
+}
 .topbar{
   background:#000;
   color:#fff;
   font-size:13px;
   padding:8px 0;
 }
-.con
+.container{
+  max-width:1200px;
+  margin:auto;
+  padding:0 15px;
+}
+.topbar .container{
+  display:flex;
+  justify-content:space-between;
+}
+.topbar a{color:#fff;text-decoration:none}
+
+.navbar{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:15px 0;
+}
+.logo img{height:55px}
+.menu a{
+  margin-left:25px;
+  text-decoration:none;
+  color:#000;
+  font-weight:600;
+  font-size:15px;
+}
+.menu a:hover{color:#c7a000}
+
+/* ================== MAIN ================== */
+main{
+  padding:60px 0;
+}
+.page-title{
+  text-align:center;
+  margin-bottom:40px;
+}
+.page-title h1{
+  font-size:32px;
+  font-weight:700;
+}
+.page-title p{
+  margin-top:10px;
+  color:#666;
+}
+
+/* ================== FILTROS ================== */
+.filters{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:20px;
+  margin-bottom:40px;
+}
+.filters label{
+  font-weight:600;
+  display:block;
+  margin-bottom:6px;
+}
+.filters select{
+  width:100%;
+  padding:10px;
+  border-radius:6px;
+  border:1px solid #ccc;
+}
+.radio-group{
+  display:flex;
+  gap:15px;
+  align-items:center;
+}
+
+/* ================== PRODUTOS ================== */
+.products{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:20px;
+}
+.product{
+  border:1px solid #eee;
+  padding:18px;
+  border-radius:10px;
+  transition:.2s;
+}
+.product:hover{
+  border-color:#c7a000;
+}
+.product a{
+  text-decoration:none;
+  color:#000;
+  font-weight:600;
+}
+.product a:hover{
+  color:#c7a000;
+}
+
+/* ================== FOOTER ================== */
+footer{
+  background:#111;
+  color:#ccc;
+  padding:50px 0 20px;
+  margin-top:60px;
+}
+.footer-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:30px;
+  margin-bottom:30px;
+}
+footer h4{
+  color:#fff;
+  margin-bottom:15px;
+}
+footer a{
+  color:#ccc;
+  text-decoration:none;
+}
+footer a:hover{color:#fff}
+.footer-bottom{
+  border-top:1px solid #333;
+  padding-top:15px;
+  text-align:center;
+  font-size:13px;
+}
+
+/* ================== RESPONSIVO ================== */
+@media(max-width:768px){
+  .menu{display:none}
+}
+</style>
+</head>
+
+<body>
+
+<!-- ================== HEADER ================== -->
+<header>
+  <div class="topbar">
+    <div class="container">
+      <div>📞 +55 11 3168-4400</div>
+      <div><a href="https://newage.tur.br">newage.tur.br</a></div>
+    </div>
+  </div>
+
+  <div class="container navbar">
+    <div class="logo">
+      <img src="https://newage.tur.br/view/images/logo.png" alt="New Age">
+    </div>
+    <nav class="menu">
+      <a href="#">A Operadora</a>
+      <a href="#">Produtos</a>
+      <a href="#">Destinos</a>
+      <a href="#">Contato</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ================== MAIN ================== -->
+<main>
+  <div class="container">
+
+    <div class="page-title">
+      <h1 font>Busca Rápida de Produtos</h1>
+      <p>Encontre facilmente os produtos nacionais e internacionais da New Age</p>
+    </div>
+
+    <div class="filters">
+      <div>
+        <label>Tipo</label>
+        <div class="radio-group">
+          <label><input type="radio" name="tipo" value="Nacional" checked> Nacional</label>
+          <label><input type="radio" name="tipo" value="Internacional"> Internacional</label>
+        </div>
+      </div>
+
+      <div>
+        <label>Selo</label>
+        <select id="seloFilter">
+          <option value="">Todos</option>
+        </select>
+      </div>
+
+      <div>
+        <label>Cidade</label>
+        <select id="cidadeFilter">
+          <option value="">Todas</option>
+        </select>
+      </div>
+    </div>
+
+    <div id="productList" class="products"></div>
+
+  </div>
+</main>
+
+<!-- ================== FOOTER ================== -->
+<footer>
+  <div class="container footer-grid">
+    <div>
+      <h4>New Age Operadora</h4>
+      <p>Excelência em turismo nacional e internacional.</p>
+    </div>
+    <div>
+      <h4>Contato</h4>
+      <p>📞 +55 11 3168-4400<br>
+      ✉️ atendimento@newage.tur.br</p>
+    </div>
+    <div>
+      <h4>Institucional</h4>
+      <p><a href="#">Sobre nós</a><br>
+      <a href="#">Política de Privacidade</a></p>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    © New Age Operadora de Turismo – Todos os direitos reservados
+  </div>
+</footer>
+
+<!-- ================== SCRIPT ================== -->
+<script>
+const CSV_URL="base_produtos.csv";
+let rows=[];
+
+fetch(CSV_URL)
+.then(r=>r.text())
+.then(t=>{
+  const l=t.split(/\r?\n/).filter(x=>x.trim());
+  const h=l.shift().split(";");
+
+  rows=l.map(r=>{
+    const v=r.split(";");
+    let o={};
+    h.forEach((k,i)=>o[k.trim()]=(v[i]||"").trim());
+    o.tipo=o.PAIS.toUpperCase()==="BRASIL"?"Nacional":"Internacional";
+    return o;
+  });
+
+  init();
+  render();
+});
+
+function init(){
+  document.querySelectorAll('input[name="tipo"]').forEach(r=>{
+    r.onchange=()=>{populateCidade();render();}
+  });
+  document.getElementById("seloFilter").onchange=render;
+  document.getElementById("cidadeFilter").onchange=render;
+  populateSelo();
+  populateCidade();
+}
+
+function populateSelo(){
+  const s=document.getElementById("seloFilter");
+  s.innerHTML='<option value="">Todos</option>';
+  [...new Set(rows.map(r=>r.SELO).filter(Boolean))]
+  .forEach(v=>s.add(new Option(v,v)));
+}
+
+function populateCidade(){
+  const tipo=document.querySelector('input[name="tipo"]:checked').value;
+  const c=document.getElementById("cidadeFilter");
+  c.innerHTML='<option value="">Todas</option>';
+  [...new Set(rows.filter(r=>r.tipo===tipo).map(r=>r.CIDADE).filter(Boolean))]
+  .forEach(v=>c.add(new Option(v,v)));
+}
+
+function render(){
+  const tipo=document.querySelector('input[name="tipo"]:checked').value;
+  const selo=document.getElementById("seloFilter").value;
+  const cidade=document.getElementById("cidadeFilter").value;
+  const out=document.getElementById("productList");
+  out.innerHTML="";
+
+  rows.filter(r=>
+    r.tipo===tipo &&
+    (!selo||r.SELO===selo) &&
+    (!cidade||r.CIDADE===cidade)
+  ).forEach(r=>{
+    const d=document.createElement("div");
+    d.className="product";
+    d.innerHTML=`<a href="${r.LINK}" target="_blank">${r.PRODUTO}</a>`;
+    out.appendChild(d);
+  });
+}
+</script>
+
+</body>
+</html>
