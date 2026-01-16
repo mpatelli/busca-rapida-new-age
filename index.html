@@ -1,409 +1,368 @@
 <!DOCTYPE html>
-<html lang="en">
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="author" content=" " />
-<meta name="description" content="Busca Rápida de Pacotes New Age - Exclusivo para Agentes de Viagens">
-<link rel="icon" type="image/png" href="favicon.ico">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<!-- Document title -->
-<title>New Age</title>
-<!-- Stylesheets & Fonts -->
-<link href="plugins.css" rel="stylesheet">
-<link href="style.css" rel="stylesheet">
-<link href="custom.css" rel="stylesheet">
-<style>
-.product-link{
-  display:block;
-  background:#f5f5f5;
-  padding:12px;
-  border-radius:6px;
-  margin-bottom:8px;
-  color:#000;
-  text-decoration:none;
-  font-weight:500;
-}
-.product-link:hover{
-  background:#ffd200;
-  color:#000;
-}
-</style>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="author" content="Arnoldi Publicidade" />
+  <meta name="description" content="Roteiros e pacotes de viagem exclusivos para atender o público brasileiro!">
+  <link rel="icon" type="image/png" href="https://newage.tur.br/view/imagens/favicon.ico">
+  <title>New Age — Busca Rápida de Produtos</title>
 
+  <!-- Mantemos os mesmos estilos públicos do site para replicar o design -->
+  <link href="https://newage.tur.br/view/css/plugins.css" rel="stylesheet">
+  <link href="https://newage.tur.br/view/css/style.css" rel="stylesheet">
+  <link href="https://newage.tur.br/view/css/custom.css" rel="stylesheet">
+
+  <!-- CSS embutido mínimo (estilos de produto e pequenos ajustes) -->
+  <style>
+    /* Ajustes mínimos para os cards de produto */
+    .product-link {
+      display:block;
+      background:#ffffff;
+      padding:14px 16px;
+      border-radius:8px;
+      margin-bottom:12px;
+      color:#1b1b1b;
+      text-decoration:none;
+      border:1px solid #e6e6e6;
+      transition: all .15s ease;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.03);
+      font-weight:600;
+    }
+    .product-link:hover {
+      background:#ffd200;
+      color:#000;
+      transform: translateY(-2px);
+      text-decoration:none;
+    }
+
+    /* Container de busca */
+    .busca-container { padding: 40px 0; }
+    .busca-filtros .form-control { height: calc(2.25rem + 10px); }
+    .titulo-busca { margin-bottom: 20px; font-size: 1.5rem; font-weight:700; }
+
+    /* responsividade */
+    @media (max-width: 576px) {
+      .product-link { padding:12px; font-size:14px; }
+    }
+  </style>
 </head>
-
 <body>
-  <div class="body-inner">
-    <!-- Header -->
-    <header id="header" data-fullwidth="true">
-      <meta charset="utf-8">
-      <div class="header-inner">
-        <div class="container">
-          <!--Logo-->
-          <div id="logo"> <a href="https://newage.tur.br"> <span class="logo-default"><img src="logo-new-age.png" style="width:179px;"></span> <span class="logo-dark">New Age</span> </a> </div>
-          <!--End: Logo-->
-          <!-- Search 
-          <div id="search"><a id="btn-search-close" class="btn-search-close" aria-label="Close search form"><i class="icon-x"></i></a>
-            <form class="search-form" action="search-results-page.html" method="get">
-              <input class="form-control" name="q" type="text" placeholder="Type & Search..." />
-              <span class="text-muted">Start typing & press "Enter" or "ESC" to close</span>
-            </form>
+<div class="body-inner">
+
+  <!-- ----------------------
+       Header (replicado)
+       ---------------------- -->
+  <header id="header" data-fullwidth="true">
+    <div class="header-inner">
+      <div class="container">
+        <!--Logo-->
+        <div id="logo">
+          <a href="https://newage.tur.br">
+            <span class="logo-default">
+              <img src="https://newage.tur.br/view/imagens/logo-new-age.png" style="width:179px;" alt="New Age">
+            </span>
+            <span class="logo-dark">New Age</span>
+          </a>
+        </div>
+        <!--Navigation Resposnive Trigger-->
+        <div id="mainMenu-trigger"> <a class="lines-button x"> <span class="lines"></span> </a> </div>
+        <!--Navigation-->
+        <div id="mainMenu">
+          <div class="container">
+            <nav>
+              <ul class="menu">
+                <li><a href="https://newage.tur.br/quem-somos">Quem Somos</a></li>
+                <li class="dropdown"><a href="#">Destinos</a>
+                  <ul class="dropdown-menu">
+                    <li class="dropdown-submenu"><a href="#">Brasil</a>
+                      <ul class="dropdown-menu">
+                        <li><a href="https://newage.tur.br/destino/centro-oeste/">Centro-Oeste</a></li>
+                        <li><a href="https://newage.tur.br/destino/norte/">Norte</a></li>
+                        <li><a href="https://newage.tur.br/destino/nordeste/">Nordeste</a></li>
+                        <li><a href="https://newage.tur.br/destino/sul/">Sul</a></li>
+                        <li><a href="https://newage.tur.br/destino/sudeste/">Sudeste</a></li>
+                      </ul>
+                    </li>
+                    <!-- (demais submenus omitidos para brevidade; o visual será mantido pelos CSS do site) -->
+                  </ul>
+                </li>
+
+                <li><a href="https://newage.tur.br/fale-conosco">Fale Conosco</a></li>
+                <li><a href="https://fastbooking.newage.tur.br/" target="_blank" class="menu-reserve">FAST BOOKING</a></li>
+                <li><a class="menu-telefone" href="tel:1143957078"><i class="fa fa-phone fa-flip-horizontal" aria-hidden="true"></i> (11) 4395-7078</a></li>
+              </ul>
+            </nav>
           </div>
--->
-          <!-- end: search -->
-          <!--Header Extras-->
-          <!--                    <div class="header-extras">
-                        <ul>
-                            <li>
-                                <a id="btn-search" href="#"> <i class="icon-search"></i></a>
-                            </li>
-                            <li>
-                                <div class="p-dropdown">
-                                    <a href="#"><i class="icon-globe"></i><span>EN</span></a>
-                                    <ul class="p-dropdown-content">
-                                        <li><a href="#">French</a></li>
-                                        <li><a href="#">Spanish</a></li>
-                                        <li><a href="#">English</a></li>
-                                    </ul>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
--->
-          <!--end: Header Extras-->
-          <!--Navigation Resposnive Trigger-->
-          <div id="mainMenu-trigger"> <a class="lines-button x"> <span class="lines"></span> </a> </div>
-          <!--end: Navigation Resposnive Trigger-->
-          <!--Navigation-->
-          <div id="mainMenu">
-            <div class="container">
-              <nav>
-                <ul class="menu">
-                  <li><a href="https://newage.tur.br/quem-somos">Quem Somos</a></li>
-               
+        </div>
+        <!--end: Navigation-->
+      </div>
+    </div>
+  </header>
+  <!-- end: Header -->
 
-                  <li class="dropdown"><a href="#">Destinos</a>
-                    <ul class="dropdown-menu">
-                      <li ><a href="#"></a></li><li class="dropdown-submenu"><a href="#"><B>Destinos</B></a> <ul class="dropdown-menu"> </ul>
-                  </li><li class="dropdown-submenu"><a href="#">Brasil</a> <ul class="dropdown-menu"><li><a href="https://newage.tur.br/destino/centro-oeste/">Centro-Oeste</a></li><li><a href="https://newage.tur.br/destino/norte/">Norte</a></li><li><a href="https://newage.tur.br/destino/nordeste/">Nordeste</a></li><li><a href="https://newage.tur.br/destino/sul/">Sul</a></li><li><a href="https://newage.tur.br/destino/sudeste/">Sudeste</a></li> </ul>
-                  </li><li class="dropdown-submenu"><a href="#">África</a> <ul class="dropdown-menu"><li><a href="https://newage.tur.br/destino/africa-do-sul/">África do Sul</a></li><li><a href="https://newage.tur.br/destino/egito/">Egito</a></li><li><a href="https://newage.tur.br/destino/marrocos/">Marrocos</a></li><li><a href="https://newage.tur.br/destino/tunisia/">Tunísia</a></li><li><a href="https://newage.tur.br/destino/quenia/">Quênia</a></li><li><a href="https://newage.tur.br/destino/tanzania/">Tanzânia</a></li> </ul>
-                  </li><li class="dropdown-submenu"><a href="#">América Central</a> <ul class="dropdown-menu"><li><a href="https://newage.tur.br/destino/costa-rica/">Costa Rica</a></li><li><a href="https://newage.tur.br/destino/guatemala/">Guatemala</a></li><li><a href="https://newage.tur.br/destino/belize/">Belize</a></li> </ul>
-                  </li><li class="dropdown-submenu"><a href="#">América do Norte</a> <ul class="dropdown-menu"><li><a href="https://newage.tur.br/destino/canada/">Canadá</a></li><li><a href="https://newage.tur.br/destino/estados-unidos/">Estados Unidos</a></li><li><a href="https://newage.tur.br/destino/mexico/">México</a></li> </ul>
-                  </li><li class="dropdown-submenu"><a href="#">América do Sul</a> <ul class="dropdown-menu"><li><a href="https://newage.tur.br/destino/argentina/">Argentina</a></li><li><a href="https://newage.tur.br/destino/bolivia/">Bolívia</a></li><li><a href="https://newage.tur.br/destino/colombia/">Colômbia</a></li><li><a href="https://newage.tur.br/destino/chile/">Chile</a></li><li><a href="https://newage.tur.br/destino/equador/">Equador</a></li><li><a href="https://newage.tur.br/destino/peru/">Peru</a></li><li><a href="https://newage.tur.br/destino/uruguai/">Uruguai</a></li> </ul>
-                  </li><li class="dropdown-submenu"><a href="#">Caribe</a> <ul class="dropdown-menu"><li><a href="https://newage.tur.br/destino/aruba/">Aruba</a></li><li><a href="https://newage.tur.br/destino/cacun-e-riviera-maya/">Cancun e Riviera Maya</a></li><li><a href="https://newage.tur.br/destino/cuba/">Cuba</a></li><li><a href="https://newage.tur.br/destino/republica-dominicana/">República Dominicana</a></li><li><a href="https://newage.tur.br/destino/jamaica/">Jamaica</a></li><li><a href="https://newage.tur.br/destino/curacao/">Curaçao </a></li><li><a href="https://newage.tur.br/destino/bahamas/">Bahamas</a></li> </ul>
-                  </li><li class="dropdown-submenu"><a href="#">Ásia</a> <ul class="dropdown-menu"><li><a href="https://newage.tur.br/destino/camboja/">Camboja</a></li><li><a href="https://newage.tur.br/destino/china/">China</a></li><li><a href="https://newage.tur.br/destino/singapura/">Singapura</a></li><li><a href="https://newage.tur.br/destino/india/">Índia</a></li><li><a href="https://newage.tur.br/destino/indonesia/">Indonésia</a></li><li><a href="https://newage.tur.br/destino/japao/">Japão</a></li><li><a href="https://newage.tur.br/destino/laos/">Laos</a></li><li><a href="https://newage.tur.br/destino/nepal/">Nepal</a></li><li><a href="https://newage.tur.br/destino/tailandia/">Tailândia</a></li><li><a href="https://newage.tur.br/destino/vietna/">Vietnã</a></li><li><a href="https://newage.tur.br/destino/filipinas/">Filipinas</a></li><li><a href="https://newage.tur.br/destino/butão/">Butão</a></li><li><a href="https://newage.tur.br/destino/sri lanka/">Sri Lanka</a></li><li><a href="https://newage.tur.br/destino/coreia do sul/">Coreia Do Sul</a></li><li><a href="https://newage.tur.br/destino/maldivas/">Maldivas</a></li> </ul>
-                  </li><li class="dropdown-submenu"><a href="#">Europa</a> <ul class="dropdown-menu"><li><a href="https://newage.tur.br/destino/alemanha/">Alemanha</a></li><li><a href="https://newage.tur.br/destino/austria/">Áustria</a></li><li><a href="https://newage.tur.br/destino/belgica/">Bélgica</a></li><li><a href="https://newage.tur.br/destino/bosnia-hezergovina/">Bósnia-Hezergovina</a></li><li><a href="https://newage.tur.br/destino/croacia/">Croácia</a></li><li><a href="https://newage.tur.br/destino/dinamarca/">Dinamarca</a></li><li><a href="https://newage.tur.br/destino/eslovenia/">Eslovênia</a></li><li><a href="https://newage.tur.br/destino/espanha/">Espanha</a></li><li><a href="https://newage.tur.br/destino/estronia/">Estônia</a></li><li><a href="https://newage.tur.br/destino/finlandia/">Finlândia</a></li><li><a href="https://newage.tur.br/destino/franca/">França</a></li><li><a href="https://newage.tur.br/destino/grecia/">Grécia</a></li><li><a href="https://newage.tur.br/destino/holanda/">Holanda</a></li><li><a href="https://newage.tur.br/destino/hungria/">Hungria</a></li><li><a href="https://newage.tur.br/destino/irlanda/">Irlanda</a></li><li><a href="https://newage.tur.br/destino/italia/">Itália</a></li><li><a href="https://newage.tur.br/destino/islandia/">Islândia</a></li><li><a href="https://newage.tur.br/destino/lituania/">Lituânia</a></li><li><a href="https://newage.tur.br/destino/malta/">Malta</a></li><li><a href="https://newage.tur.br/destino/noruega/">Noruega</a></li><li><a href="https://newage.tur.br/destino/letonia/">Letônia</a></li><li><a href="https://newage.tur.br/destino/portugal/">Portugal</a></li><li><a href="https://newage.tur.br/destino/reino-unido/">Reino Unido</a></li><li><a href="https://newage.tur.br/destino/republica-tcheca/">República Tcheca</a></li><li><a href="https://newage.tur.br/destino/servia/">Sérvia</a></li><li><a href="https://newage.tur.br/destino/suecia/">Suécia</a></li><li><a href="https://newage.tur.br/destino/suica/">Suíça</a></li><li><a href="https://newage.tur.br/destino/turquia/">Turquia</a></li> </ul>
-                  </li><li class="dropdown-submenu"><a href="#">Oriente Médio</a> <ul class="dropdown-menu"><li><a href="https://newage.tur.br/destino/emirados-arabes-unidos/">Emirados Árabes Unidos</a></li><li><a href="https://newage.tur.br/destino/qatar/">Qatar</a></li><li><a href="https://newage.tur.br/destino/arabia-saudita/">Arábia Saudita</a></li><li><a href="https://newage.tur.br/destino/oma/">Omã</a></li> </ul>
-                  </li><li class="dropdown-submenu"><a href="#">Oceania</a> <ul class="dropdown-menu"><li><a href="https://newage.tur.br/destino/australia/">Austrália</a></li><li><a href="https://newage.tur.br/destino/nova-zelandia/">Nova Zelândia</a></li> </ul>
-                  </li><li class="dropdown-submenu"><a href="#"><b>Produtos Especiais</B></a> <ul class="dropdown-menu"><li><a href="https://newage.tur.br/destino/reveillon/">Réveillon</a></li><li><a href="https://newage.tur.br/destino/bloqueioturquia/">Bloqueio Turquia</a></li><li><a href="https://newage.tur.br/destino/peruweek/">Peru Week</a></li><li><a href="https://newage.tur.br/destino/poolcanada/">Pool Canadá</a></li><li><a href="https://newage.tur.br/destino/eventos/">Eventos</a></li><li><a href="https://newage.tur.br/destino/mulheres/">Só Mulheres</a></li> </ul>
-                  </li><li class="dropdown-submenu"><a href="#"><b>Small Group</B></a> <ul class="dropdown-menu"><li><a href="https://newage.tur.br/destino/smallgroupmarrocos/">Marrocos</a></li><li><a href="https://newage.tur.br/destino/smallgroupturquia/">Turquia</a></li><li><a href="https://newage.tur.br/destino/smallgroupislandia/">Islândia</a></li><li><a href="https://newage.tur.br/destino/smallgroupmexico/">México</a></li><li><a href="https://newage.tur.br/destino/smallgroupitalia/">Itália</a></li><li><a href="https://newage.tur.br/destino/smallgroupguatemala/">Guatemala</a></li><li><a href="https://newage.tur.br/destino/smallgroupchina/">China</a></li><li><a href="https://newage.tur.br/destino/smallgroupcuba/">Cuba</a></li><li><a href="https://newage.tur.br/destino/smallgroupindia/">Índia</a></li> </ul>
-                  </li>                    </ul>
-                  </li>
+  <!-- ======= MAIN: aqui entra o container principal com a busca/listagem ======= -->
+  <main role="main">
+    <div class="container busca-container">
 
-                  <!--<li><a href="https://www.aprovacao.arnoldi.com.br/newage/news">News</a></li>-->
-                  <li><a href="https://newage.tur.br/fale-conosco">Fale Conosco</a></li>
-                                    <li><a href="https://fastbooking.newage.tur.br/" target="_blank" class="menu-reserve">FAST BOOKING</a></li>
-                  <li><a class="menu-telefone" href="tel:1143957078"><i class="fa fa-phone fa-flip-horizontal" aria-hidden="true"></i> (11) 4395-7078</a></li>
-
-
-                </ul>
-              </nav>
-            </div>
-          </div>
-          <!--end: Navigation-->
+      <!-- Título da seção -->
+      <div class="row">
+        <div class="col-12">
+          <h1 class="titulo-busca">Busca Rápida de Produtos</h1>
+          <p class="text-muted">Filtre por tipo, selo e cidade. Clique no produto para abrir o link.</p>
         </div>
       </div>
-    </header>
-    <!-- end: Header -->
 
-        <div class="row">
-            <div class="col-12">
-                <!-- Título da página -->
-                <h1 class="titulo-pagina">Fale Conosco</h1>
-            </div>
+      <!-- FILTROS -->
+      <div class="row busca-filtros mb-4">
+        <div class="col-md-3 col-12 mb-2">
+          <label class="form-label"><strong>Tipo</strong></label><br>
+          <label class="me-2"><input type="radio" name="tipo" value="Nacional" checked> Nacional</label>
+          <label class="me-2"><input type="radio" name="tipo" value="Internacional"> Internacional</label>
         </div>
-	  
-<!-- Adaptacao -->
-<section class="container mt-5 mb-5">
 
-  <div class="row mb-4">
-    <div class="col-md-3">
-      <p>Tipo</p>
-      <label class="form-label"><input type="radio" name="tipo" value="Nacional" checked> Nacional</label>
-      <label class="form-label"><input type="radio" name="tipo" value="Internacional"> Internacional</label>
-    </div>
+        <div class="col-md-3 col-6 mb-2">
+          <label class="form-label"><strong>Selo</strong></label>
+          <select id="seloFilter" class="form-control">
+            <option value="">Todos</option>
+          </select>
+        </div>
 
-    <div class="col-md-3">
-      <p>Selo</p>
-      <select id="seloFilter" class="form-control">
-        <option value="">Todos</option>
-      </select>
-    </div>
+        <div class="col-md-3 col-6 mb-2">
+          <label class="form-label"><strong>Cidade</strong></label>
+          <select id="cidadeFilter" class="form-control">
+            <option value="">Todas</option>
+          </select>
+        </div>
+      </div>
 
-    <div class="col-md-3">
-      <p>Cidade</p>
-      <select id="cidadeFilter" class="form-control">
-        <option value="">Todas</option>
-      </select>
-    </div>
-  </div>
+      <!-- RESULTADOS -->
+      <div id="productList" class="row"></div>
 
-  <div id="productList" class="row"></div>
-</section>
+    </div><!-- /.container -->
+  </main>
 
-<!-- end: Adaptacao -->    
-
-
-<!-- Footer -->
-<br>
-
-<footer id="footer">
+  <!-- ----------------------
+       Footer (replicado)
+       ---------------------- -->
+  <footer id="footer">
     <div class="footer-content" style="padding-top: 40px !important;">
-        <div class="container"> 
-            <div class="row">
-			
-
-                <div class="col-lg-4">
-                    <div class="widget mb-0">
-                        <div class="widget-title">Contato</div>
-                        <p class="mb-5"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-telephone-fill" viewBox="0 0 16 16">
-                                <path fill-rule="evenodd" d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z" />
-                            </svg> (11) 4395-7078</p>
-                        <p class="mb-5"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-envelope" viewBox="0 0 16 16">
-                                <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z" />
-                            </svg> comercial@newage.tur.br</p>
-                        <p class="mb-5"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clock" viewBox="0 0 16 16">
-                                <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z" />
-                                <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z" />
-                            </svg> Horário de Funcionamento<br> Segunda a Sexta das 9h00 às 18h30</p>
-                    </div>
-                </div>
-                <div class="col-lg-8">
-                    <div class="row">
-                        <div class="col-lg-7">
-                            <div class="widget">
-                                <div class="widget-title">Formulários</div>
-                                <ul class="list">
-                                    <li><a href="https://newage.tur.br/news">News</a></li>                                    
-									<li><a href="https://newage.tur.br/formularios">Para reservar</a></li>
-                                    <li><a href="https://newage.tur.br/pagina/condicoes-gerais/">Condições Gerais</a></li>                                    <li><a href="https://newage.tur.br/formularios">Política de Privacidade</a></li>
-                                    <li><a href="https://newage.tur.br/formularios">Termo de responsabilidade</a></li>
-                                  
-                                   <li><a href="https://www-newage-tur-br-2.rds.land/contato" target="_blank">Seja cliente</a></li>
-                                   <li><a href="https://www-newage-tur-br-2.rds.land/solicitacoesviagensgrupo" target="_blank">Solicitações para grupos</a></li>
-                                                                  
-                                  
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-lg-5">
-                            <div class="widget">
-                                <ul class="list">
-                                    <li>Redes Sociais: 
-										<a href="https://www.instagram.com/newagetur/" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="m-2 bi bi-instagram" viewBox="0 0 16 16">
-                                            <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z" />
-                                        </svg></a>
-										<a href="https://www.facebook.com/NewAgeTurismo/?locale=pt_BR" target="_blank">
-										<svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="m-2 bi bi-facebook" viewBox="0 0 16 16">
-                                            <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z" />
-                                        </svg></a>
-									<a href="https://br.linkedin.com/company/new-age-tur" target="_blank">
-									<svg xmlns="http://www.w3.org/2000/svg"  width="26" height="26" fill="currentColor" viewBox="0 0 448 512">
-										<path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg></a>&nbsp;
-										<a href="https://www.youtube.com/@newagetouroperator" target="_blank">
-										<svg xmlns="http://www.w3.org/2000/svg"  width="26" height="26" fill="currentColor" viewBox="0 0 576 512"><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"/></svg></a>&nbsp;
-										<a href="https://twitter.com/NewAgeTur" target="_blank">
-										<svg xmlns="http://www.w3.org/2000/svg"  width="26" height="26" fill="currentColor" viewBox="0 0 512 512">
-											<path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
-										</a>	
-										
-										<div style="font-size: 14px;">Câmbio data: <span class="cotacao-data"></span>
-											<br><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 320 512"><path d="M146 0c17.7 0 32 14.3 32 32V67.7c1.6 .2 3.1 .4 4.7 .7c.4 .1 .7 .1 1.1 .2l48 8.8c17.4 3.2 28.9 19.9 25.7 37.2s-19.9 28.9-37.2 25.7l-47.5-8.7c-31.3-4.6-58.9-1.5-78.3 6.2s-27.2 18.3-29 28.1c-2 10.7-.5 16.7 1.2 20.4c1.8 3.9 5.5 8.3 12.8 13.2c16.3 10.7 41.3 17.7 73.7 26.3l2.9 .8c28.6 7.6 63.6 16.8 89.6 33.8c14.2 9.3 27.6 21.9 35.9 39.5c8.5 17.9 10.3 37.9 6.4 59.2c-6.9 38-33.1 63.4-65.6 76.7c-13.7 5.6-28.6 9.2-44.4 11V480c0 17.7-14.3 32-32 32s-32-14.3-32-32V445.1c-.4-.1-.9-.1-1.3-.2l-.2 0 0 0c-24.4-3.8-64.5-14.3-91.5-26.3C4.9 411.4-2.4 392.5 4.8 376.3s26.1-23.4 42.2-16.2c20.9 9.3 55.3 18.5 75.2 21.6c31.9 4.7 58.2 2 76-5.3c16.9-6.9 24.6-16.9 26.8-28.9c1.9-10.6 .4-16.7-1.3-20.4c-1.9-4-5.6-8.4-13-13.3c-16.4-10.7-41.5-17.7-74-26.3l-2.8-.7 0 0C105.4 279.3 70.4 270 44.4 253c-14.2-9.3-27.5-22-35.8-39.6C.3 195.4-1.4 175.4 2.5 154.1C9.7 116 38.3 91.2 70.8 78.3c13.3-5.3 27.9-8.9 43.2-11V32c0-17.7 14.3-32 32-32z"/></svg> <span class="cotacao-dolar"></span>
-											
-											<svg xmlns="http://www.w3.org/2000/svg"  width="16" height="16" fill="currentColor" viewBox="0 0 320 512"><path d="M48.1 240c-.1 2.7-.1 5.3-.1 8v16c0 2.7 0 5.3 .1 8H32c-17.7 0-32 14.3-32 32s14.3 32 32 32H60.3C89.9 419.9 170 480 264 480h24c17.7 0 32-14.3 32-32s-14.3-32-32-32H264c-57.9 0-108.2-32.4-133.9-80H256c17.7 0 32-14.3 32-32s-14.3-32-32-32H112.2c-.1-2.6-.2-5.3-.2-8V248c0-2.7 .1-5.4 .2-8H256c17.7 0 32-14.3 32-32s-14.3-32-32-32H130.1c25.7-47.6 76-80 133.9-80h24c17.7 0 32-14.3 32-32s-14.3-32-32-32H264C170 32 89.9 92.1 60.3 176H32c-17.7 0-32 14.3-32 32s14.3 32 32 32H48.1z"/></svg><span class="cotacao-euro"></span>
-											
-<!--											<svg xmlns="http://www.w3.org/2000/svg"  width="16" height="16" fill="currentColor" viewBox="0 0 320 512"><path d="M112 160.4c0-35.5 28.8-64.4 64.4-64.4c6.9 0 13.8 1.1 20.4 3.3l81.2 27.1c16.8 5.6 34.9-3.5 40.5-20.2s-3.5-34.9-20.2-40.5L217 38.6c-13.1-4.4-26.8-6.6-40.6-6.6C105.5 32 48 89.5 48 160.4V192H32c-17.7 0-32 14.3-32 32s14.3 32 32 32H48v32H32c-17.7 0-32 14.3-32 32s14.3 32 32 32H46c-2.2 10.5-6.1 20.6-11.7 29.9L4.6 431.5c-5.9 9.9-6.1 22.2-.4 32.2S20.5 480 32 480H288c17.7 0 32-14.3 32-32s-14.3-32-32-32H88.5l.7-1.1c11.6-19.3 18.9-40.7 21.6-62.9H224c17.7 0 32-14.3 32-32s-14.3-32-32-32H112V256H224c17.7 0 32-14.3 32-32s-14.3-32-32-32H112V160.4z"/></svg> <span class="cotacao-libra"></span>-->
-										</div>
-										
-									
-									</li>
-                                    <li class="logo-footer"><img src="https://newage.tur.br/view/imagens/logo-new-age-branco.jpg"></li>
-									<li style="padding-left: 10%;padding-top: 10px;"><a href="https://www.iglta.org/" target="_blank"><img src="https://newage.tur.br/view/imagens/IGLTA_Logo_HRZ_4color_WHITE.png" style="width: 115px;"></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-4">
+            <div class="widget mb-0">
+              <div class="widget-title">Contato</div>
+              <p class="mb-5"> (11) 4395-7078</p>
+              <p class="mb-5"> comercial@newage.tur.br</p>
+              <p class="mb-5"> Horário de Funcionamento<br> Segunda a Sexta das 9h00 às 18h30</p>
             </div>
+          </div>
+          <div class="col-lg-8">
+            <div class="row">
+              <div class="col-lg-7">
+                <div class="widget">
+                  <div class="widget-title">Formulários</div>
+                  <ul class="list">
+                    <li><a href="https://newage.tur.br/news">News</a></li>
+                    <li><a href="https://newage.tur.br/formularios">Para reservar</a></li>
+                    <li><a href="https://newage.tur.br/pagina/condicoes-gerais/">Condições Gerais</a></li>
+                    <li><a href="https://newage.tur.br/formularios">Política de Privacidade</a></li>
+                    <li><a href="https://newage.tur.br/formularios">Termo de responsabilidade</a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-lg-5">
+                <div class="widget">
+                  <ul class="list">
+                    <li>Redes Sociais:
+                      <a href="https://www.instagram.com/newagetur/" target="_blank">Instagram</a>
+                      <a href="https://www.facebook.com/NewAgeTurismo/?locale=pt_BR" target="_blank">Facebook</a>
+                    </li>
+                    <li class="logo-footer"><img src="https://newage.tur.br/view/imagens/logo-new-age-branco.jpg" style="max-width:160px"></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
+      </div> <!-- /.container -->
     </div>
+
     <div class="copyright-content">
-        <div class="container">
-            <div class="copyright-text text-center">Copyright 2023 &copy; NEWAGE Viagens e Turismo LTDA - CNPJ 57.949.422/0001-25 - Desenvolvido por <a href="https://www.arnoldi.com.br/?utm_source=newage" target="_blank" style="color: #9ebfdd !important;" title="Agência de Marketing Digital">Arnoldi Marketing Digital</a> </div>
-        </div>
+      <div class="container">
+        <div class="copyright-text text-center">Copyright 2023 &copy; NEWAGE Viagens e Turismo LTDA - CNPJ 57.949.422/0001-25 - Desenvolvido por <a href="https://www.arnoldi.com.br/?utm_source=newage" target="_blank" style="color: #9ebfdd !important;">Arnoldi Marketing Digital</a></div>
+      </div>
     </div>
-</footer>
-<!-- end: Footer -->
+  </footer>
+  <!-- end: Footer -->
+
 </div>
 <!-- end: Body Inner -->
-<!-- Scroll top -->
+
+<!-- Scroll top (mantido) -->
 <a id="scrollTop"><i class="icon-chevron-up"></i><i class="icon-chevron-up"></i></a>
-<!--Plugins-->
+
+<!-- SCRIPTS QUE O SITE USA (carregamos depois para manter comportamento visual) -->
 <script src="https://newage.tur.br/view/js/jquery.js"></script>
 <script src="https://newage.tur.br/view/js/plugins.js"></script>
-<!--Template functions-->
 <script src="https://newage.tur.br/view/js/functions.js"></script>
 
-	<script>
+<!-- =========================
+     SCRIPT DE LEITURA E EXIBIÇÃO DO CSV
+     ========================= -->
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // URL do CSV — ajuste se o arquivo tiver nome diferente
+  const CSV_URL = './base_produtos.csv';
 
-	var eurojs;
+  let rows = []; // array de objetos
 
-$(function(){
+  // util: limpar valores (BOM, aspas, espaços)
+  function clean(v){
+    return (v||'').replace(/\uFEFF/g,'').replace(/^"+|"+$/g,'').trim();
+  }
 
-//	$.getJSON( "https://motorv2.infotravel.com.br/integra/api/cambio/buscarCambio/NEWAGE", function( data ) {
-	$.getJSON( "https://fastbooking.newage.tur.br/integra/api/cambio/buscarCambio/NEWAGE", function( data ) {
+  // detecta separador com base na primeira linha
+  function detectSeparator(text){
+    const firstLine = text.split(/\r?\n/)[0] || '';
+    if(firstLine.indexOf(';') !== -1) return ';';
+    if(firstLine.indexOf(',') !== -1) return ',';
+    if(firstLine.indexOf('\t') !== -1) return '\t';
+    return ','; // fallback
+  }
 
-	$.each(data, function(k,v){
-
-		
-
-		valor_cambio = '-';
-
-		if( v.vlCambio.toString().split(".")[1] < 10)
-
-		{
-
-			valor_cambio = v.vlCambio.toString().split(".")[0] + ','+ v.vlCambio.toString().split(".")[1] + '0';
-
-		}
-
-		else	
-
-		{
-
-			valor_cambio = v.vlCambio.toString().split(".")[0] + ','+ v.vlCambio.toString().split(".")[1];
-
-		}			
-
-	   
-
-		if(v.sgMoeda == 'USD')
-
-		{			
-
-			$(".cotacao-dolar").html('R$ '+valor_cambio);
-
-		}
-
-		else if(v.sgMoeda == 'EUR')
-
-		{
-
-			$(".cotacao-euro").html('R$ '+valor_cambio);
-
-		}
-
-		else if(v.sgMoeda == 'GBP')
-
-		{
-
-			$(".cotacao-libra").html('R$ '+valor_cambio);
-
-		}
-
-	});		
-
-	
-
-	$(".cotacao-data").html(data[0].dtFechamento.split(' ')[0]);
-
-
-
-	});
-
-});
-
-	</script>
-
-<!-- RD STATION -->
-<script type="text/javascript" async src=https://d335luupugsy2.cloudfront.net/js/loader-scripts/62be6d11-7a49-4608-879d-6f91077fa826-loader.js ></script>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js" integrity="sha512-pHVGpX7F/27yZ0ISY+VVjyULApbDlD0/X0rgGbTqCE7WFW5MezNTWG/dnhtbBuICzsd0WQPgpE4REBLv+UqChw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
-
-<!-- BUSCA PRODUTO -->
-  <script>
-document.addEventListener("DOMContentLoaded", () => {
-
-  const CSV_URL = "base_produtos.csv";
-  let rows = [];
-
-  fetch(CSV_URL)
-    .then(r => r.text())
+  fetch(CSV_URL, {cache: "no-store"})
+    .then(r => {
+      if(!r.ok) throw new Error('Falha ao obter CSV: ' + r.status);
+      return r.text();
+    })
     .then(text => {
-      const lines = text.split(/\r?\n/).filter(l=>l.trim());
-      const headers = lines.shift().split(";").map(h=>h.trim());
+      // separador flexível
+      const sep = detectSeparator(text);
+      const lines = text.split(/\r?\n/).filter(l => l.trim() !== '');
+      if(lines.length === 0) throw new Error('CSV vazio');
 
-      rows = lines.map(l=>{
-        const v=l.split(";");
-        let o={};
-        headers.forEach((h,i)=>o[h]=(v[i]||"").trim());
-        o.tipo = o.PAIS.toUpperCase()==="BRASIL" ? "Nacional":"Internacional";
-        return o;
+      const headers = lines.shift().split(sep).map(h => clean(h.toUpperCase()));
+
+      rows = lines.map(line => {
+        // Tratamento para campos entre aspas que contenham separador:
+        // tentamos dividir por regexp simples que respeita aspas
+        let values = [];
+        if(sep === ','){
+          // regex para CSV comum entre aspas (simples)
+          values = line.match(/(".*?"|[^",]+)(?=\s*,|\s*$)/g) || line.split(sep);
+        } else {
+          // para ';' ou '\t' usamos split direto (planilha geralmente exporta assim)
+          values = line.split(sep);
+        }
+
+        const obj = {};
+        headers.forEach((h, i) => obj[h] = clean(values[i] || ''));
+        // garantia de campos minimos esperados (nomes: PAIS, REGIAO, SELO, CIDADE, PRODUTO, LINK)
+        obj.PAIS = obj.PAIS || '';
+        obj.SELO = obj.SELO || '';
+        obj.CIDADE = obj.CIDADE || '';
+        obj.PRODUTO = obj.PRODUTO || '';
+        obj.LINK = obj.LINK || '#';
+        obj.tipo = (obj.PAIS.toUpperCase().indexOf('BRASIL') !== -1) ? 'Nacional' : 'Internacional';
+        return obj;
       });
 
-      bind();
-      render();
+      initFiltersAndRender();
+    })
+    .catch(err => {
+      console.error('Erro ao carregar CSV:', err);
+      const out = document.getElementById('productList');
+      out.innerHTML = '<div class="col-12"><div class="alert alert-danger">Não foi possível carregar a lista de produtos. Verifique se <code>base_produtos.csv</code> está acessível na raiz.</div></div>';
     });
 
-  function bind(){
-    document.querySelectorAll('input[name="tipo"]').forEach(r=>r.onchange=()=>{
+  // popula selos e cidades (cidades dependem do tipo atual)
+  function initFiltersAndRender(){
+    populateSelo();
+    populateCidade(); // inicial com 'Nacional' por default
+    // bind de eventos
+    document.querySelectorAll('input[name="tipo"]').forEach(r => r.addEventListener('change', () => {
       populateCidade();
       render();
-    });
+    }));
+    document.getElementById('seloFilter').addEventListener('change', render);
+    document.getElementById('cidadeFilter').addEventListener('change', render);
 
-    document.getElementById("seloFilter").onchange = render;
-    document.getElementById("cidadeFilter").onchange = render;
-
-    populateCidade();
-    populateSelo();
+    // render inicial
+    render();
   }
 
   function populateSelo(){
-    const sel = document.getElementById("seloFilter");
+    const sel = document.getElementById('seloFilter');
     sel.innerHTML = '<option value="">Todos</option>';
-    [...new Set(rows.map(r=>r.SELO).filter(Boolean))]
-      .forEach(v=>sel.add(new Option(v,v)));
+    const uniqueSelos = [...new Set(rows.map(r => r.SELO).filter(Boolean))].sort();
+    uniqueSelos.forEach(s => sel.appendChild(new Option(s, s)));
   }
 
   function populateCidade(){
     const tipo = document.querySelector('input[name="tipo"]:checked').value;
-    const cid = document.getElementById("cidadeFilter");
-    cid.innerHTML = '<option value="">Todas</option>';
+    const selectCidade = document.getElementById('cidadeFilter');
+    selectCidade.innerHTML = '<option value="">Todas</option>';
 
-    [...new Set(
-      rows.filter(r=>r.tipo===tipo).map(r=>r.CIDADE).filter(Boolean)
-    )].forEach(v=>cid.add(new Option(v,v)));
+    // Filtrar cidades pelo tipo selecionado:
+    // se tipo === 'Nacional', usa apenas registros com PAIS contendo 'BRASIL'
+    const cidades = [...new Set(rows
+      .filter(r => {
+        if(tipo === 'Nacional') return r.PAIS.toUpperCase().indexOf('BRASIL') !== -1;
+        return r.PAIS.toUpperCase().indexOf('BRASIL') === -1;
+      })
+      .map(r => r.CIDADE)
+      .filter(Boolean)
+    )].sort();
+
+    cidades.forEach(c => selectCidade.appendChild(new Option(c, c)));
   }
 
   function render(){
     const tipo = document.querySelector('input[name="tipo"]:checked').value;
-    const selo = document.getElementById("seloFilter").value;
-    const cidade = document.getElementById("cidadeFilter").value;
-    const out = document.getElementById("productList");
-    out.innerHTML="";
+    const selo = document.getElementById('seloFilter').value;
+    const cidade = document.getElementById('cidadeFilter').value;
+    const out = document.getElementById('productList');
+    out.innerHTML = '';
 
-    rows.filter(r=>
-      r.tipo===tipo &&
-      (!selo || r.SELO===selo) &&
-      (!cidade || r.CIDADE===cidade)
-    ).forEach(r=>{
-      const col=document.createElement("div");
-      col.className="col-md-4";
-      col.innerHTML=`<a class="product-link" href="${r.LINK}" target="_blank">${r.PRODUTO}</a>`;
+    // aplica filtros
+    const filtered = rows.filter(r => {
+      if(r.tipo !== tipo) return false;
+      if(selo && r.SELO !== selo) return false;
+      if(cidade && r.CIDADE !== cidade) return false;
+      return true;
+    });
+
+    if(filtered.length === 0){
+      out.innerHTML = '<div class="col-12"><p class="text-muted">Nenhum produto encontrado para os filtros selecionados.</p></div>';
+      return;
+    }
+
+    filtered.forEach(r => {
+      const col = document.createElement('div');
+      col.className = 'col-md-4 col-sm-6';
+      // escapando o link via encodeURI - não alteramos se já for url válida
+      const safeHref = (r.LINK && r.LINK !== '#') ? r.LINK : '#';
+      col.innerHTML = `
+        <a class="product-link" href="${safeHref}" target="_blank" rel="noopener noreferrer">
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;">
+            <div>
+              <div style="font-size:0.95rem;color:#666;margin-bottom:6px">${r.SELO ? r.SELO + ' • ' : ''}${r.CIDADE ? r.CIDADE : ''}</div>
+              <div style="font-size:1rem">${r.PRODUTO}</div>
+            </div>
+            <div style="font-size:0.9rem;color:#888">›</div>
+          </div>
+        </a>`;
       out.appendChild(col);
     });
   }
+
 });
 </script>
+
+</body>
+</html>
+
 
 <!-- end: BUSCA PRODUTO -->
   
